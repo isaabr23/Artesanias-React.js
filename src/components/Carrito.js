@@ -5,6 +5,7 @@ import { Header } from "./Header";
 import { Tabla } from "./Tabla";
 
 export const Carrito = () => {
+  
   var guardado = JSON.parse(localStorage.getItem("carrito"));
 
   const handlePay = () => {
@@ -27,7 +28,7 @@ export const Carrito = () => {
       <div className="totales">
         <h1>Total:</h1>
         { guardado.map( (arte) => (<Tabla arte={arte} key={arte.id}/> ))}
-        <hr style={{color: "black", width: "150px", height: "3px", marginLeft: "210px"}}/>
+        <hr style={{color: "black", height: "2px", marginLeft: "210px"}}/>
         <div className="flexa">
           <div className="btnGreen point">
             <p onClick={handlePay}>Pagar</p>

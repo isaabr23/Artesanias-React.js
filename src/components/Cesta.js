@@ -2,8 +2,18 @@ import React from 'react'
 
 export const Cesta = ({arte}) => {
 
-    const handleDelete = () => {
-        console.log('Borrado')
+    var guardado = JSON.parse(localStorage.getItem("carrito"));
+
+    const handleDelete = () => {        
+
+        console.log( arte.id );
+        
+        for (var i =0; i < guardado.length; i++){
+            if (guardado[i].id === arte.id) {
+                guardado.splice(i,1);
+            }
+         }
+         console.log(guardado)
     };
 
     return (
