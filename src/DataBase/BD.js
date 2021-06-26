@@ -79,21 +79,135 @@ export const Bolsas = [
     }
 ]
 
-export const BolsasArt = [
-    {
-        'id': '0',
-        'imagen': 'Bol0.jpg',
-    },
+export const Bolsas2 = [
     {
         'id': '1',
-        'imagen': 'Bol1.jpg',
+        'imagen': 'B0.jpg',
     },
     {
         'id': '2',
-        'imagen': 'Bol2.jpg',
+        'imagen': 'B1.jpg',
     },
     {
         'id': '3',
-        'imagen': 'Bol3.jpg',
+        'imagen': 'B2.jpg',
+    },
+    {
+        'id': '4',
+        'imagen': 'B3.jpg',
+    }
+]
+
+export const Bolsas3 = [
+    {
+        'id': '1',
+        'imagen': 'B0.jpg',
+    },
+    {
+        'id': '2',
+        'imagen': 'B1.jpg',
+    },
+    {
+        'id': '3',
+        'imagen': 'B2.jpg',
+    },
+    {
+        'id': '4',
+        'imagen': 'B3.jpg',
+    }
+]
+
+export const Bolsas4 = [
+    {
+        'id': '1',
+        'imagen': 'B0.jpg',
+    },
+    {
+        'id': '2',
+        'imagen': 'B1.jpg',
+    },
+    {
+        'id': '3',
+        'imagen': 'B2.jpg',
+    },
+    {
+        'id': '4',
+        'imagen': 'B3.jpg',
+    }
+]
+
+export const Bolsas5 = [
+    {
+        'id': '1',
+        'imagen': 'B0.jpg',
+    },
+    {
+        'id': '2',
+        'imagen': 'B1.jpg',
+    },
+    {
+        'id': '3',
+        'imagen': 'B2.jpg',
+    },
+    {
+        'id': '4',
+        'imagen': 'B3.jpg',
+    }
+]
+
+export const Bolsas6 = [
+    {
+        'id': '1',
+        'imagen': 'B0.jpg',
+    },
+    {
+        'id': '2',
+        'imagen': 'B1.jpg',
+    },
+    {
+        'id': '3',
+        'imagen': 'B2.jpg',
+    },
+    {
+        'id': '4',
+        'imagen': 'B3.jpg',
+    }
+]
+
+export const Bolsas7 = [
+    {
+        'id': '1',
+        'imagen': 'B0.jpg',
+    },
+    {
+        'id': '2',
+        'imagen': 'B1.jpg',
+    },
+    {
+        'id': '3',
+        'imagen': 'B2.jpg',
+    },
+    {
+        'id': '4',
+        'imagen': 'B3.jpg',
+    }
+]
+
+export const Bolsas8 = [
+    {
+        'id': '1',
+        'imagen': 'B0.jpg',
+    },
+    {
+        'id': '2',
+        'imagen': 'B1.jpg',
+    },
+    {
+        'id': '3',
+        'imagen': 'B2.jpg',
+    },
+    {
+        'id': '4',
+        'imagen': 'B3.jpg',
     }
 ]

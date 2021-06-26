@@ -42,7 +42,7 @@ export const Cart = () => {
     return (
         <>
             <div className="btn">
-                <p onClick={handleAdd}>Add to Car</p>
+                <p onClick={handleAdd}>Add to Cart</p>
                 <div className="cart-icon">
                 <i className="fa fa-shopping-cart" aria-hidden="true"></i>
                 </div>

@@ -19,13 +19,11 @@ export const Cart = ({value}) => {
     localStorage.setItem('carrito', JSON.stringify(carrito));
 
     return (
-        <>
-            <div className="btn">
-                <p onClick={handleAdd}>Add to Car</p>
-                <div className="cart-icon">
-                <i className="fa fa-shopping-cart" aria-hidden="true"></i>
-                </div>
+        <div className="btn">
+            <p onClick={handleAdd}>Add to Car</p>
+            <div className="cart-icon">
+            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
             </div>
-    </>
+        </div>
     )
 }

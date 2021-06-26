@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Artesanias, Bolsas } from "../DataBase/BD";
+import { Artesanias, Bolsas, Bolsas2 } from "../DataBase/BD";
 import { Corazon } from "./Corazon";
 import { Estrellas } from "./Estrellas";
 import { Footer } from "./Footer";
@@ -18,10 +18,29 @@ export const Informacion = ({ location }) => {
 // {location.state.id} Extrae el id de cada producto por medio del url
 //   console.log(location);
 
-
   const { name, detalle, precio} = Artesanias[found - 1 ]
 
-  const imagenArr = Bolsas.map((bolsa) => bolsa.imagen);
+
+  if(location.state.id === '1') {
+    var carpeta = Bolsas
+  } else if (location.state.id === '2') {
+    carpeta = Bolsas2
+  } else if (location.state.id === '3') {
+    carpeta = Bolsas2
+  } else if (location.state.id === '4') {
+    carpeta = Bolsas2
+  } else if (location.state.id === '5') {
+    carpeta = Bolsas2
+  } else if (location.state.id === '6') {
+    carpeta = Bolsas2
+  } else if (location.state.id === '7') {
+    carpeta = Bolsas2
+  } else if (location.state.id === '8') {
+    carpeta = Bolsas2
+  }
+
+
+  const imagenArr = carpeta.map((bolsa) => bolsa.imagen);
   const [imgCarr, setImgCarr] = useState(0)
 
   const handlenext = () => {
@@ -35,7 +54,7 @@ export const Informacion = ({ location }) => {
       setImgCarr(imgCarr - 1);
     }
   };
-    
+
   return (
     <div>
       <Header />
@@ -55,7 +74,7 @@ export const Informacion = ({ location }) => {
           <div
             className="imageInfo"
             style={{
-              backgroundImage: `url("../assets/img/bolsas/${imagenArr[imgCarr]}")`,
+              backgroundImage: `url("../assets/img/${location.state.id}/${imagenArr[imgCarr]}")`,
               backgroundPosition: "center",
               backgroundSize: "cover",
             }}
