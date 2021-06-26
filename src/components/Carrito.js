@@ -19,7 +19,7 @@ export const Carrito = () => {
     <div>
       <Header />
       <h1 className="centrado">Carrito de Compras</h1>
-      {guardado.map((arte) => ( <Cesta arte={arte} key={arte.id} /> ))}
+      {guardado.map((arte) => ( <Cesta arte={arte} key={arte.id} value={false}/> ))}
 
       <div className="totales">
         <h1>Total:</h1>
