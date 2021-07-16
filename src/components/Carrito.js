@@ -12,8 +12,25 @@ export const Carrito = () => {
     console.log("Pagado");
   };
 
-  const tot = guardado.map( keep => keep.precio)
-  let total = tot.reduce((a, b) => a + b, 0);
+  let totalPrecio = guardado
+    .map( keep => keep.precio)
+    .reduce((a, b) => a + b, 0);
+
+  // Para que solo se muestre un nombre de cada producto si hay mas de 1 seleccionados
+  const hash = {};
+  const filtro = guardado.filter(function(current) {
+    var exists = !hash[current.id];
+    hash[current.id] = true;
+    return exists;
+  });
+
+  // Para sacar los ids y hacer el resumen de pedidos
+  const ids = guardado.map( keep => keep.id)
+
+  var repetidos = { };
+  ids.forEach(function(numero){
+    repetidos[numero] = (repetidos[numero] || 0) + 1;
+  });
 
   return (
     <div>
@@ -23,7 +40,7 @@ export const Carrito = () => {
 
       <div className="totales">
         <h1>Total:</h1>
-        { guardado.map( (arte) => (<Tabla arte={arte} key={arte.id}/> ))}
+        { filtro.map( (arte) => (<Tabla arte={arte} key={arte.id} valor={repetidos[arte.id]} /> ))}
         <hr style={{color: "black", height: "2px", marginLeft: "210px"}}/>
         <div className="flexa">
           <div className="btnGreen point">
@@ -32,7 +49,7 @@ export const Carrito = () => {
               <i className="fas fa-money-bill-wave"></i>
             </div>
           </div>
-          <h3> $ {total}</h3> 
+          <h3> $ {totalPrecio}</h3> 
         </div>
       </div>
       <Footer />

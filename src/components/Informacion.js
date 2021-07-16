@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Artesanias, Bolsas, Bolsas2 } from "../DataBase/BD";
+import { Artesanias, Bolsas } from "../DataBase/BD";
+import { Cart } from "./Cart";
 import { Corazon } from "./Corazon";
 import { Estrellas } from "./Estrellas";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
+import { UserContextProvider } from "./UserContextProvider";
 
 export const Informacion = ({ location }) => {
     
@@ -21,22 +23,8 @@ export const Informacion = ({ location }) => {
   const { name, detalle, precio} = Artesanias[found - 1 ]
 
 
-  if(location.state.id === '1') {
+  if(location.state.id !== '0') {
     var carpeta = Bolsas
-  } else if (location.state.id === '2') {
-    carpeta = Bolsas2
-  } else if (location.state.id === '3') {
-    carpeta = Bolsas2
-  } else if (location.state.id === '4') {
-    carpeta = Bolsas2
-  } else if (location.state.id === '5') {
-    carpeta = Bolsas2
-  } else if (location.state.id === '6') {
-    carpeta = Bolsas2
-  } else if (location.state.id === '7') {
-    carpeta = Bolsas2
-  } else if (location.state.id === '8') {
-    carpeta = Bolsas2
   }
 
 
@@ -50,61 +38,74 @@ export const Informacion = ({ location }) => {
   };
 
   const handleatras = () => {
-      if ( imgCarr <= imagenArr.length && imgCarr > 0 ) {
+    if ( imgCarr <= imagenArr.length && imgCarr > 0 ) {
       setImgCarr(imgCarr - 1);
     }
   };
 
+  const id = location.state.id
+  const imagen = imagenArr[imgCarr]
+  const arte = {
+    id,
+    imagen,
+    name,
+    detalle,
+    precio
+  }
+
+  console.log(arte)
+
   return (
-    <div>
-      <Header />
-      <div className="back">
-       <Link to='/'><i className="far fa-arrow-alt-circle-left"></i></Link>
-       <h1 className="centrado">Informacion del producto</h1>
-      </div>
-      <div className="containerInfo">
-        <div className="back-next">
-          {
-            ( imgCarr !== 0 ) ? <i onClick={handleatras} className="far fa-arrow-alt-circle-left atras"></i> : <i className="far fa-arrow-alt-circle-left atras2"></i>
-          }
-          {
-            ( imgCarr !== 3) ? <i onClick={handlenext} className="far fa-arrow-alt-circle-right siguiente"></i> : <i className="far fa-arrow-alt-circle-right siguiente2"></i>
-          }
-      </div>
-          <div
-            className="imageInfo"
-            style={{
-              backgroundImage: `url("../assets/img/${location.state.id}/${imagenArr[imgCarr]}")`,
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-            }}
-          ></div> 
-        <div className="reviewInfo">
-          <div className="starsInfo">
-            <span>Reviews</span>
-            <Estrellas />
-          </div>
-          <h5>$ {precio}</h5>
+    <UserContextProvider>
+      <div>
+        <Header />
+        <div className="back">
+        <Link to='/'><i className="far fa-arrow-alt-circle-left"></i></Link>
+        <h1 className="centrado">Informacion del producto</h1>
         </div>
-        <div className="flex">
-        <h4 className="nombreInfo">{name}</h4>
-        <div className="detallesInfo">
-          <p>{detalle}</p>
+        <div className="containerInfo">
+          <div className="back-next">
+            {
+              imgCarr !== 0 
+                ? <i onClick={handleatras} className="far fa-arrow-alt-circle-left atras"></i> 
+                : <i className="far fa-arrow-alt-circle-left atras2"></i>
+            }
+            {
+              imgCarr !== 3 
+                ? <i onClick={handlenext} className="far fa-arrow-alt-circle-right siguiente"></i> 
+                : <i className="far fa-arrow-alt-circle-right siguiente2"></i>
+            }
         </div>
-        </div>
-        <div className="btn-boxInfo">
-          <span className="likeInfo pointInfo">
-            <Corazon />
-          </span>
-          <div className="btnInfo">
-            <p>Add to Car</p>
-            <div className="cart-iconInfo">
-              <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+            <div
+              className="imageInfo"
+              style={{
+                backgroundImage: `url("../assets/img/${location.state.id}/${imagenArr[imgCarr]}")`,
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+              }}
+            ></div> 
+          <div className="reviewInfo">
+            <div className="starsInfo">
+              <span>Reviews</span>
+              <Estrellas />
             </div>
+            <h5>$ {precio}</h5>
+          </div>
+          <div className="flex">
+          <h4 className="nombreInfo">{name}</h4>
+          <div className="detallesInfo">
+            <p>{detalle}</p>
+          </div>
+          </div>
+          <div className="btn-boxInfo">
+            <span className="likeInfo pointInfo">
+              <Corazon />
+            </span>
+            <Cart value={arte} />
           </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </UserContextProvider>
   );
-};
+};  

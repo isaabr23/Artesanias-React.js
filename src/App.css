@@ -165,6 +165,15 @@
   cursor: pointer;
 }
 
+.likes {
+  font-size: 10px;
+  font-family: 'Poppins', sans-serif;
+  color: #f3289e;
+  width: 202%;
+  line-height: 16px;
+  margin-top: 8px;
+}
+
 /** Pagina de informacion **/
 .back {
   display: flex;

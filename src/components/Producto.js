@@ -4,23 +4,22 @@ import { Corazon } from "./Corazon";
 import { Estrellas } from "./Estrellas";
 
 export const Producto = ({ arte }) => {
-
   return (
-    
     <div className="container">
-          <Link to={{
-            pathname: `/Informacion/${arte.name}`,
-            state: { id: arte.id }
-            }}>
-              <div
-                className="image"
-                style={{
-                  backgroundImage: `url("../assets/img/${arte.imagen}")`,
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                }}
-              ></div>
-          </Link>
+      <Link to={{
+        pathname: `/Informacion/${arte.name}`,
+        state: { id: arte.id }
+      }}>
+        <div
+          className="image"
+          style={{
+            backgroundImage: `url("../assets/img/${arte.imagen}")`,
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+          }}
+        >
+        </div>
+      </Link>
       <div className="contenido">
         <div className="review">
           <div className="stars">

@@ -13,14 +13,19 @@ export const Cart = ({value}) => {
             detalle: value.detalle,
             precio: value.precio,
         } 
-        setCarrito([...carrito, newProducto])
+        if (carrito) {
+            setCarrito([...carrito, newProducto])
+            localStorage.setItem('carrito', JSON.stringify([...carrito, newProducto]));
+        } else {
+            setCarrito([newProducto])
+            localStorage.setItem('carrito', JSON.stringify([newProducto]));
+        }
         setContgeneral(contgeneral + 1);
     };
-    localStorage.setItem('carrito', JSON.stringify(carrito));
 
     return (
         <div className="btn">
-            <p onClick={handleAdd}>Add to Car</p>
+            <p onClick={handleAdd}>Add to Cart</p>
             <div className="cart-icon">
             <i className="fa fa-shopping-cart" aria-hidden="true"></i>
             </div>
