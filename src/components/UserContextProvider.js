@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { UserContext } from '../UserContext';
 
 export const UserContextProvider = ({children}) => {
-
     const [contgeneral, setContgeneral] = useState(0);
     const [carrito, setCarrito] = useState([]);
     return (
