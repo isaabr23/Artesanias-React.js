@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../UserContext';
+import Swal from 'sweetalert2';
 
 export const Cart = ({ value }) => {
   const { contgeneral, setContgeneral, carrito, setCarrito } =
@@ -24,6 +25,15 @@ export const Cart = ({ value }) => {
       localStorage.setItem('carrito', JSON.stringify([newProducto]));
     }
     setContgeneral(contgeneral + 1);
+
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Agregado al carrito',
+      showConfirmButton: false,
+      width: 300,
+      timer: 1000,
+    });
   };
 
   return (

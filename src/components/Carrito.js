@@ -1,4 +1,5 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 import { Cesta } from './Cesta';
 import { Footer } from './Footer';
 import { Header } from './Header';
@@ -8,7 +9,15 @@ export const Carrito = () => {
   var guardado = JSON.parse(localStorage.getItem('carrito'));
 
   const handlePay = () => {
-    console.log('Pagado');
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Se ha pagado un total de :',
+      text: '$' + totalPrecio,
+      showConfirmButton: false,
+      width: 300,
+      timer: 2000,
+    });
   };
 
   let totalPrecio = guardado

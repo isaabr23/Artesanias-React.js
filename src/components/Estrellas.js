@@ -15,8 +15,6 @@ export const Estrellas = () => {
     }
     setStar(clickStates);
   };
-  // console.log(star)
-
   return (
     <>
       <i
