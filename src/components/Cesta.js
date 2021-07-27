@@ -1,53 +1,49 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-export const Cesta = ({arte}) => {
+export const Cesta = ({ arte }) => {
+  const [value, setValue] = useState(false);
 
-    const [value, setValue] = useState(false)
-        
-    const handleDelete = () => {        
-        var guardado = JSON.parse(localStorage.getItem("carrito"));
-        
-        // quita los objetos que son diferentes al id
-            var diferentID = guardado.filter((id) =>
-                id.id !== arte.id  
-            );
-            
-        // regresa los objetos iguales al id (sin los de arriba)    
-            var correctID = guardado.filter((id) =>
-                id.id === arte.id  
-            );
+  const handleDelete = () => {
+    var guardado = JSON.parse(localStorage.getItem('carrito'));
 
-        // Elimina un objeto del id seleccionado 
-            correctID.splice(0, 1);
+    // quita los objetos que son diferentes al id
+    var diferentID = guardado.filter(id => id.id !== arte.id);
 
-            const guardadoNew = diferentID.concat(correctID);
+    // regresa los objetos iguales al id (sin los de arriba)
+    var correctID = guardado.filter(id => id.id === arte.id);
 
-            localStorage.setItem('carrito', JSON.stringify(guardadoNew));
-            setValue(true)
-    };
+    // Elimina un objeto del id seleccionado
+    correctID.splice(0, 1);
 
-    return (
-        <>
-            { value === false ?
-                <div className="containerCesta">
-                    <div
-                    className="imageCesta"
-                    style={{
-                        backgroundImage: `url("../assets/img/${arte.imagen}")`,
-                        backgroundPosition: "center",
-                        backgroundSize: "cover",
-                        }}
-                    ></div> 
-                        <h5 className="nombreCesta">$ {arte.precio}</h5>
-                        <h4 className="nameCesta">{arte.name}</h4>
-                    <div>
-                        <div className="btnDelete point">
-                            <i onClick={handleDelete} className="fas fa-minus-circle"></i>
-                        </div>
-                    </div>
-                </div>
-                : <></>
-            }
-        </>
-    )
-}
+    const guardadoNew = diferentID.concat(correctID);
+
+    localStorage.setItem('carrito', JSON.stringify(guardadoNew));
+    setValue(true);
+  };
+
+  return (
+    <>
+      {value === false ? (
+        <div className="containerCesta">
+          <div
+            className="imageCesta"
+            style={{
+              backgroundImage: `url("../assets/img/${arte.imagen}")`,
+              backgroundPosition: 'center',
+              backgroundSize: 'cover',
+            }}
+          ></div>
+          <h5 className="nombreCesta">$ {arte.precio}</h5>
+          <h4 className="nameCesta">{arte.name}</h4>
+          <div>
+            <div className="btnDelete point">
+              <i onClick={handleDelete} className="fas fa-minus-circle"></i>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
+    </>
+  );
+};

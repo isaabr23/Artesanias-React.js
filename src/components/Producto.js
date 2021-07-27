@@ -1,24 +1,25 @@
-import { Link } from "react-router-dom";
-import { Cart } from "./Cart";
-import { Corazon } from "./Corazon";
-import { Estrellas } from "./Estrellas";
+import { Link } from 'react-router-dom';
+import { Cart } from './Cart';
+import { Corazon } from './Corazon';
+import { Estrellas } from './Estrellas';
 
 export const Producto = ({ arte }) => {
   return (
     <div className="container">
-      <Link to={{
-        pathname: `/Informacion/${arte.name}`,
-        state: { id: arte.id }
-      }}>
+      <Link
+        to={{
+          pathname: `/Informacion/${arte.name}`,
+          state: { id: arte.id },
+        }}
+      >
         <div
           className="image"
           style={{
             backgroundImage: `url("../assets/img/${arte.imagen}")`,
-            backgroundPosition: "center",
-            backgroundSize: "cover",
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
           }}
-        >
-        </div>
+        ></div>
       </Link>
       <div className="contenido">
         <div className="review">
@@ -36,7 +37,7 @@ export const Producto = ({ arte }) => {
           <span className="like point">
             <Corazon />
           </span>
-            <Cart value={arte} />
+          <Cart value={arte} />
         </div>
       </div>
     </div>
